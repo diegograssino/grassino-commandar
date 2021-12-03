@@ -65,12 +65,12 @@ const Navigation = () => {
         }}
       >
         <Tab.Screen
-          name="ProductStackScreen"
-          component={ProductStackScreen}
-        />
-        <Tab.Screen
           name="OrderStackScreen"
           component={OrderStackScreen}
+        />
+        <Tab.Screen
+          name="ProductStackScreen"
+          component={ProductStackScreen}
         />
         <Tab.Screen
           name="UserStackScreen"
