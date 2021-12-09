@@ -13,18 +13,9 @@ const ProductStack = createNativeStackNavigator();
 function ProductStackScreen() {
   return (
     <ProductStack.Navigator initialRouteName="ScreenTables">
-      <ProductStack.Screen
-        name="ScreenTables"
-        component={ScreenTables}
-      />
-      <ProductStack.Screen
-        name="ScreenItemList"
-        component={ScreenItemList}
-      />
-      <ProductStack.Screen
-        name="ScreenItemDetail"
-        component={ScreenItemDetail}
-      />
+      <ProductStack.Screen name="ScreenTables" component={ScreenTables} />
+      <ProductStack.Screen name="ScreenItemList" component={ScreenItemList} />
+      <ProductStack.Screen name="ScreenItemDetail" component={ScreenItemDetail} />
     </ProductStack.Navigator>
   );
 }
@@ -33,14 +24,8 @@ const OrderStack = createNativeStackNavigator();
 function OrderStackScreen() {
   return (
     <OrderStack.Navigator initialRouteName="ScreenOrdersList">
-      <OrderStack.Screen
-        name="ScreenOrdersList"
-        component={ScreenOrdersList}
-      />
-      <OrderStack.Screen
-        name="ScreenOrderDetail"
-        component={ScreenOrderDetail}
-      />
+      <OrderStack.Screen name="ScreenOrdersList" component={ScreenOrdersList} />
+      <OrderStack.Screen name="ScreenOrderDetail" component={ScreenOrderDetail} />
     </OrderStack.Navigator>
   );
 }
@@ -64,18 +49,9 @@ const Navigation = () => {
           headerShown: false,
         }}
       >
-        <Tab.Screen
-          name="OrderStackScreen"
-          component={OrderStackScreen}
-        />
-        <Tab.Screen
-          name="ProductStackScreen"
-          component={ProductStackScreen}
-        />
-        <Tab.Screen
-          name="UserStackScreen"
-          component={UserStackScreen}
-        />
+        <Tab.Screen name="OrderStackScreen" component={OrderStackScreen} />
+        <Tab.Screen name="ProductStackScreen" component={ProductStackScreen} />
+        <Tab.Screen name="UserStackScreen" component={UserStackScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );

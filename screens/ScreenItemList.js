@@ -4,7 +4,7 @@ import CustomButton from '../components/CustomButton';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectItem } from '../store/actions/items.action';
 
-const ScreenItemList = ({ route, navigation }) => {
+const ScreenItemList = ({ navigation }) => {
   const dispatch = useDispatch();
   const items = useSelector(state => state.items.items);
   const selectedItem = useSelector(state => state.items.selected);
@@ -29,20 +29,12 @@ const ScreenItemList = ({ route, navigation }) => {
       <FlatList
         data={items}
         keyExtractor={item => item.id}
-        renderItem={({ item }) => (
-          <CustomButton
-            title={item.title}
-            onPress={() => handleSelectItem(item)}
-          />
-        )}
+        renderItem={({ item }) => <CustomButton title={item.title} onPress={() => handleSelectItem(item)} />}
       />
       <Text>{`Mesa nro ${selectedTable}`}</Text>
       <Text>{`Item nro ${selectedItem}`}</Text>
 
-      <CustomButton
-        title="Siguiente pantalla"
-        onPress={() => navigation.navigate('ScreenItemDetail')}
-      />
+      <CustomButton title="Siguiente pantalla" onPress={() => navigation.navigate('ScreenItemDetail')} />
     </View>
   );
 };

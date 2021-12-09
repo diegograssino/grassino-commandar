@@ -1,18 +1,10 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 const CustomButton = props => {
   return (
-    <TouchableOpacity
-      style={styles.customButton}
-      onPress={props.onPress}
-    >
-      <Text>{props.title}</Text>
+    <TouchableOpacity style={styles.customButton} onPress={props.onPress}>
+      <Text style={styles.poppins}>{props.title}</Text>
     </TouchableOpacity>
   );
 };
@@ -27,5 +19,8 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     padding: 10,
     margin: 10,
+  },
+  poppins: {
+    fontFamily: 'Poppins_400Regular',
   },
 });
