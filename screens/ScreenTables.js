@@ -3,7 +3,7 @@ import { View, Text, FlatList } from 'react-native';
 import CustomButton from '../components/CustomButton';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectTable } from '../store/actions/tables.action';
-import { Poppins_400Regular } from '@expo-google-fonts/poppins';
+import { COLORS } from '../constants/colors';
 const ScreenTables = ({ navigation }) => {
   const dispatch = useDispatch();
   const tables = useSelector(state => state.tables.tables);
@@ -22,7 +22,7 @@ const ScreenTables = ({ navigation }) => {
     <View
       style={{
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: COLORS.white,
         alignItems: 'center',
         justifyContent: 'center',
       }}

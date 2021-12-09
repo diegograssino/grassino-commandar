@@ -8,14 +8,44 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ScreenOrdersList from '../screens/ScreenOrdersList';
 import ScreenOrderDetail from '../screens/ScreenOrderDetail';
 import ScreenUser from '../screens/ScreenUser';
+import { COLORS } from '../constants/colors';
 
 const ProductStack = createNativeStackNavigator();
 function ProductStackScreen() {
   return (
-    <ProductStack.Navigator initialRouteName="ScreenTables">
-      <ProductStack.Screen name="ScreenTables" component={ScreenTables} />
-      <ProductStack.Screen name="ScreenItemList" component={ScreenItemList} />
-      <ProductStack.Screen name="ScreenItemDetail" component={ScreenItemDetail} />
+    <ProductStack.Navigator
+      initialRouteName="ScreenTables"
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: COLORS.primary,
+        },
+        headerTintColor: COLORS.white,
+        headerTitleStyle: {
+          fontFamily: 'Poppins_700Bold',
+        },
+      }}
+    >
+      <ProductStack.Screen
+        name="ScreenTables"
+        component={ScreenTables}
+        options={{
+          title: 'Mesa',
+        }}
+      />
+      <ProductStack.Screen
+        name="ScreenItemList"
+        component={ScreenItemList}
+        options={{
+          title: 'Pedido',
+        }}
+      />
+      <ProductStack.Screen
+        name="ScreenItemDetail"
+        component={ScreenItemDetail}
+        options={{
+          title: 'Detalle',
+        }}
+      />
     </ProductStack.Navigator>
   );
 }
@@ -23,7 +53,18 @@ function ProductStackScreen() {
 const OrderStack = createNativeStackNavigator();
 function OrderStackScreen() {
   return (
-    <OrderStack.Navigator initialRouteName="ScreenOrdersList">
+    <OrderStack.Navigator
+      initialRouteName="ScreenOrdersList"
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: COLORS.primary,
+        },
+        headerTintColor: COLORS.white,
+        headerTitleStyle: {
+          fontFamily: 'Poppins_700Bold',
+        },
+      }}
+    >
       <OrderStack.Screen name="ScreenOrdersList" component={ScreenOrdersList} />
       <OrderStack.Screen name="ScreenOrderDetail" component={ScreenOrderDetail} />
     </OrderStack.Navigator>
@@ -33,7 +74,18 @@ function OrderStackScreen() {
 const UserStack = createNativeStackNavigator();
 function UserStackScreen() {
   return (
-    <UserStack.Navigator initialRouteName="ScreenOrdersList">
+    <UserStack.Navigator
+      initialRouteName="ScreenOrdersList"
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: COLORS.primary,
+        },
+        headerTintColor: COLORS.white,
+        headerTitleStyle: {
+          fontFamily: 'Poppins_700Bold',
+        },
+      }}
+    >
       <UserStack.Screen name="ScreenUser" component={ScreenUser} />
     </UserStack.Navigator>
   );
@@ -50,7 +102,7 @@ const Navigation = () => {
         }}
       >
         <Tab.Screen name="OrderStackScreen" component={OrderStackScreen} />
-        <Tab.Screen name="ProductStackScreen" component={ProductStackScreen} />
+        <Tab.Screen name="ProductStackScreen" component={ProductStackScreen} options={{ title: '' }} />
         <Tab.Screen name="UserStackScreen" component={UserStackScreen} />
       </Tab.Navigator>
     </NavigationContainer>
