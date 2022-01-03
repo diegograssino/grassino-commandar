@@ -9,14 +9,14 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     margin: 10,
     paddingHorizontal: 15,
-    paddingVertical: 5,
+    paddingVertical: 15,
   },
   customButtonText: {
     color: COLORS.secondary,
     fontFamily: 'FiraSans_500Medium',
   },
 });
-function CustomButton({ onPress, title }) {
+function TableButton({ onPress, title }) {
   return (
     <TouchableOpacity style={styles.customButton} onPress={onPress}>
       <Text style={styles.customButtonText}>{title.toUpperCase()}</Text>
@@ -24,4 +24,4 @@ function CustomButton({ onPress, title }) {
   );
 }
 
-export default CustomButton;
+export default TableButton;

@@ -19,7 +19,7 @@ const initialState = {
   selectedTable: null,
 };
 
-const TablesReducer = (state = initialState, action) => {
+function TablesReducer(state = initialState, action = '') {
   switch (action.type) {
     case SELECT_TABLE:
       return { ...state, selected: action.tableID };
@@ -27,6 +27,6 @@ const TablesReducer = (state = initialState, action) => {
     default:
       return state;
   }
-};
+}
 
 export default TablesReducer;

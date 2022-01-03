@@ -4,23 +4,23 @@ import AppLoading from 'expo-app-loading';
 import {
   useFonts,
   // eslint-disable-next-line camelcase
-  Poppins_400Regular,
+  FiraSans_400Regular,
   // eslint-disable-next-line camelcase
-  Poppins_500Medium,
+  FiraSans_500Medium,
   // eslint-disable-next-line camelcase
-  Poppins_700Bold,
-} from '@expo-google-fonts/poppins';
+  FiraSans_700Bold,
+} from '@expo-google-fonts/fira-sans';
 import store from './store';
 import Navigation from './navigation/Navigation';
 
 function App() {
   const [fontsLoaded] = useFonts({
     // eslint-disable-next-line camelcase
-    Poppins_400Regular,
+    FiraSans_400Regular,
     // eslint-disable-next-line camelcase
-    Poppins_700Bold,
+    FiraSans_700Bold,
     // eslint-disable-next-line camelcase
-    Poppins_500Medium,
+    FiraSans_500Medium,
   });
 
   if (!fontsLoaded) {

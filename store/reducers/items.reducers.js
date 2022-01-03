@@ -19,7 +19,7 @@ const initialState = {
   selectedItem: null,
 };
 
-const ItemsReducer = (state = initialState, action) => {
+const ItemsReducer = (state = initialState, action = '') => {
   switch (action.type) {
     case SELECT_ITEM:
       return { ...state, selected: action.itemID };

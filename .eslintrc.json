@@ -21,7 +21,7 @@
   "rules": {
     "eqeqeq": "error",
     "semi": ["off", "never"],
-    "indent": ["warn", 2],
+    "indent": ["warn", 2, { "SwitchCase": 1 }],
     "import/no-unresolved": "off",
     "react/jsx-filename-extension": [
       1,
@@ -44,6 +44,15 @@
     "react-native/no-inline-styles": "off",
     "react-native/no-color-literals": "off",
     "react-native/no-raw-text": "off",
-    "react-native/no-single-element-style-arrays": "off"
+    "react-native/no-single-element-style-arrays": "off",
+    "no-tabs": ["error", { "allowIndentationTabs": true }],
+    "max-len": [
+      "error",
+      {
+        "code": 90,
+        "tabWidth": 2,
+        "ignoreUrls": true
+      }
+    ]
   }
 }

@@ -2,17 +2,19 @@ import React from 'react';
 import { View, Text, FlatList } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import CustomButton from '../components/CustomButton';
+import ItemButton from '../components/ItemButton';
 import { selectItem } from '../store/actions/items.action';
 
 function ScreenItemList({ route, navigation }) {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.items.items);
   const selectedItem = useSelector((state) => state.items.selected);
-  // const selectedTable = useSelector((state) => state.tables.selected)
+  const selectedTable = useSelector((state) => state.tables.selected);
   const handleSelectItem = (item) => {
     dispatch(selectItem(item.id));
     navigation.navigate('ScreenItemDetail', {
-      navigation,
+      tableId: route.params.tableId,
+      itemId: item.id,
     });
   };
   return (
@@ -25,21 +27,34 @@ function ScreenItemList({ route, navigation }) {
       }}
     >
       <FlatList
+        style={{
+          width: '90%',
+          marginTop: 20,
+        }}
         data={items}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <CustomButton
+          <ItemButton
             title={item.title}
             onPress={() => handleSelectItem(item)}
           />
         )}
       />
-      <Text>{`Mesa nro ${route.params.tableId}`}</Text>
-      <Text>{`Item nro ${selectedItem}`}</Text>
+      <Text style={{ fontFamily: 'FiraSans_400Regular' }}>
+        {`Mesa nro ${route.params.tableId}`}
+      </Text>
+      <Text style={{ fontFamily: 'FiraSans_400Regular' }}>
+        {`Item nro ${selectedItem}`}
+      </Text>
 
       <CustomButton
         title="Siguiente pantalla"
-        onPress={() => navigation.navigate('ScreenItemDetail')}
+        onPress={() =>
+          navigation.navigate('ScreenItemDetail', {
+            tableId: selectedTable,
+            itemId: selectedItem,
+          })
+        }
       />
     </View>
   );

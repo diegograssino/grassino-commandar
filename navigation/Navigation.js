@@ -1,17 +1,17 @@
-import React from 'react'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { NavigationContainer } from '@react-navigation/native'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import ScreenTables from '../screens/ScreenTables'
-import ScreenItemList from '../screens/ScreenItemList'
-import ScreenItemDetail from '../screens/ScreenItemDetail'
-import ScreenOrdersList from '../screens/ScreenOrdersList'
-import ScreenOrderDetail from '../screens/ScreenOrderDetail'
-import ScreenUser from '../screens/ScreenUser'
-import { COLORS } from '../constants/colors'
+import React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import ScreenTables from '../screens/ScreenTables';
+import ScreenItemList from '../screens/ScreenItemList';
+import ScreenItemDetail from '../screens/ScreenItemDetail';
+import ScreenOrdersList from '../screens/ScreenOrdersList';
+import ScreenOrderDetail from '../screens/ScreenOrderDetail';
+import ScreenUser from '../screens/ScreenUser';
+import { COLORS } from '../constants/colors';
 
-const ProductStack = createNativeStackNavigator()
-const ProductStackScreen = function () {
+const ProductStack = createNativeStackNavigator();
+function ProductStackScreen() {
   return (
     <ProductStack.Navigator
       initialRouteName="ScreenTables"
@@ -21,7 +21,7 @@ const ProductStackScreen = function () {
         },
         headerTintColor: COLORS.white,
         headerTitleStyle: {
-          fontFamily: 'Poppins_700Bold',
+          fontFamily: 'FiraSans_700Bold',
         },
       }}
     >
@@ -47,11 +47,11 @@ const ProductStackScreen = function () {
         }}
       />
     </ProductStack.Navigator>
-  )
+  );
 }
 
-const OrderStack = createNativeStackNavigator()
-const OrderStackScreen = function () {
+const OrderStack = createNativeStackNavigator();
+function OrderStackScreen() {
   return (
     <OrderStack.Navigator
       initialRouteName="ScreenOrdersList"
@@ -61,7 +61,7 @@ const OrderStackScreen = function () {
         },
         headerTintColor: COLORS.white,
         headerTitleStyle: {
-          fontFamily: 'Poppins_700Bold',
+          fontFamily: 'FiraSans_700Bold',
         },
       }}
     >
@@ -71,11 +71,11 @@ const OrderStackScreen = function () {
         component={ScreenOrderDetail}
       />
     </OrderStack.Navigator>
-  )
+  );
 }
 
-const UserStack = createNativeStackNavigator()
-const UserStackScreen = function () {
+const UserStack = createNativeStackNavigator();
+function UserStackScreen() {
   return (
     <UserStack.Navigator
       initialRouteName="ScreenOrdersList"
@@ -85,18 +85,18 @@ const UserStackScreen = function () {
         },
         headerTintColor: COLORS.white,
         headerTitleStyle: {
-          fontFamily: 'Poppins_700Bold',
+          fontFamily: 'FiraSans_700Bold',
         },
       }}
     >
       <UserStack.Screen name="ScreenUser" component={ScreenUser} />
     </UserStack.Navigator>
-  )
+  );
 }
 
-const Tab = createBottomTabNavigator()
+const Tab = createBottomTabNavigator();
 
-const Navigation = function () {
+function Navigation() {
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -113,7 +113,7 @@ const Navigation = function () {
         <Tab.Screen name="UserStackScreen" component={UserStackScreen} />
       </Tab.Navigator>
     </NavigationContainer>
-  )
+  );
 }
 
-export default Navigation
+export default Navigation;
