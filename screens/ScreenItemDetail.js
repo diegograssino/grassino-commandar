@@ -1,8 +1,9 @@
+/* eslint-disable func-names */
 import React from 'react';
 import { View, Text } from 'react-native';
 import CustomButton from '../components/CustomButton';
 
-const ScreenItemDetail = ({ navigation }) => {
+function ScreenItemDetail({ navigation }) {
   return (
     <View
       style={{
@@ -19,6 +20,6 @@ const ScreenItemDetail = ({ navigation }) => {
       />
     </View>
   );
-};
+}
 
 export default ScreenItemDetail;

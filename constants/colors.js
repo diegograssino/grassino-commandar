@@ -7,4 +7,6 @@ export const COLORS = {
   info: '#4a90e2',
   white: '#f7f7f7',
   black: '#18130E',
-};
+}
+
+export default COLORS
