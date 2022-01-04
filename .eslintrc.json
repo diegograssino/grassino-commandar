@@ -19,6 +19,7 @@
   },
   "plugins": ["react", "react-native"],
   "rules": {
+    "react/no-unstable-nested-components": ["off", { "allowAsProps": false }],
     "eqeqeq": "error",
     "semi": ["off", "never"],
     "indent": ["warn", 2, { "SwitchCase": 1 }],

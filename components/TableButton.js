@@ -4,16 +4,15 @@ import { COLORS } from '../constants/colors';
 
 const styles = StyleSheet.create({
   customButton: {
-    borderColor: COLORS.secondary,
+    backgroundColor: COLORS.secondary,
     borderRadius: 10,
-    borderWidth: 3,
     margin: 10,
     paddingHorizontal: 15,
-    paddingVertical: 15,
+    paddingVertical: 25,
   },
   customButtonText: {
-    color: COLORS.secondary,
-    fontFamily: 'FiraSans_500Medium',
+    color: COLORS.white,
+    fontFamily: 'FiraSans_700Bold',
   },
 });
 function TableButton({ onPress, title }) {

@@ -25,7 +25,7 @@ function ScreenTables({ navigation }) {
         backgroundColor: COLORS.white,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 20,
+        paddingTop: 15,
       }}
     >
       <FlatList

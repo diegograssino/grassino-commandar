@@ -4,7 +4,7 @@ import { COLORS } from '../constants/colors';
 
 const styles = StyleSheet.create({
   customButton: {
-    borderColor: COLORS.secondary,
+    borderColor: COLORS.black,
     borderRadius: 10,
     borderWidth: 3,
     margin: 10,
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
   },
   customButtonText: {
-    color: COLORS.secondary,
+    color: COLORS.black,
     fontFamily: 'FiraSans_500Medium',
   },
 });

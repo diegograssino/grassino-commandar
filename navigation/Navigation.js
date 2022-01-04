@@ -2,6 +2,8 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { FontAwesome5, FontAwesome } from '@expo/vector-icons';
+import { Image } from 'react-native';
 import ScreenTables from '../screens/ScreenTables';
 import ScreenItemList from '../screens/ScreenItemList';
 import ScreenItemDetail from '../screens/ScreenItemDetail';
@@ -9,6 +11,17 @@ import ScreenOrdersList from '../screens/ScreenOrdersList';
 import ScreenOrderDetail from '../screens/ScreenOrderDetail';
 import ScreenUser from '../screens/ScreenUser';
 import { COLORS } from '../constants/colors';
+import PlusButton from '../components/PlusButton';
+
+function LogoTitle() {
+  return (
+    <Image
+      style={{ width: 100, height: 27 }}
+      // eslint-disable-next-line global-require
+      source={require('../assets/logodintico.png')}
+    />
+  );
+}
 
 const ProductStack = createNativeStackNavigator();
 function ProductStackScreen() {
@@ -23,6 +36,7 @@ function ProductStackScreen() {
         headerTitleStyle: {
           fontFamily: 'FiraSans_700Bold',
         },
+        headerTitle: () => <LogoTitle />,
       }}
     >
       <ProductStack.Screen
@@ -63,6 +77,7 @@ function OrderStackScreen() {
         headerTitleStyle: {
           fontFamily: 'FiraSans_700Bold',
         },
+        headerTitle: () => <LogoTitle />,
       }}
     >
       <OrderStack.Screen name="ScreenOrdersList" component={ScreenOrdersList} />
@@ -87,6 +102,7 @@ function UserStackScreen() {
         headerTitleStyle: {
           fontFamily: 'FiraSans_700Bold',
         },
+        headerTitle: () => <LogoTitle />,
       }}
     >
       <UserStack.Screen name="ScreenUser" component={ScreenUser} />
@@ -102,15 +118,45 @@ function Navigation() {
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
+          tabBarActiveTintColor: COLORS.white,
+          tabBarStyle: {
+            backgroundColor: COLORS.secondary,
+            paddingTop: 10,
+            marginTop: 20,
+            paddingHorizontal: 30,
+          },
         }}
       >
-        <Tab.Screen name="OrderStackScreen" component={OrderStackScreen} />
+        <Tab.Screen
+          name="OrderStackScreen"
+          component={OrderStackScreen}
+          options={{
+            title: 'Ordenes',
+            tabBarIcon: ({ size, color }) => (
+              <FontAwesome5 name="list" size={size} color={color} />
+            ),
+          }}
+        />
         <Tab.Screen
           name="ProductStackScreen"
           component={ProductStackScreen}
-          options={{ title: '' }}
+          options={{
+            title: '',
+            tabBarIcon: ({ focused, size }) => (
+              <PlusButton size={size} focused={focused} />
+            ),
+          }}
         />
-        <Tab.Screen name="UserStackScreen" component={UserStackScreen} />
+        <Tab.Screen
+          name="UserStackScreen"
+          component={UserStackScreen}
+          options={{
+            title: 'Configuración',
+            tabBarIcon: ({ size, color }) => (
+              <FontAwesome name="gear" size={size} color={color} />
+            ),
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
