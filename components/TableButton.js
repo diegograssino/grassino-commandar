@@ -4,14 +4,14 @@ import { COLORS } from '../constants/colors';
 
 const styles = StyleSheet.create({
   customButton: {
-    backgroundColor: COLORS.secondary,
+    backgroundColor: COLORS.oldWhite,
     borderRadius: 10,
     margin: 10,
     paddingHorizontal: 15,
     paddingVertical: 25,
   },
   customButtonText: {
-    color: COLORS.white,
+    color: COLORS.black,
     fontFamily: 'FiraSans_700Bold',
   },
 });

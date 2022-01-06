@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import CustomButton from '../components/CustomButton';
 import ItemButton from '../components/ItemButton';
 import { selectItem } from '../store/actions/items.action';
+import { COLORS } from '../constants/colors';
 
 function ScreenItemList({ route, navigation }) {
   const dispatch = useDispatch();
@@ -18,45 +19,60 @@ function ScreenItemList({ route, navigation }) {
     });
   };
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      <FlatList
+    <>
+      <View
         style={{
-          width: '90%',
-          marginTop: 20,
+          backgroundColor: COLORS.success,
+          paddingTop: 10,
+          paddingBottom: 5,
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
-        data={items}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <ItemButton
-            title={item.title}
-            onPress={() => handleSelectItem(item)}
-          />
-        )}
-      />
-      <Text style={{ fontFamily: 'FiraSans_400Regular' }}>
-        {`Mesa nro ${route.params.tableId}`}
-      </Text>
-      <Text style={{ fontFamily: 'FiraSans_400Regular' }}>
-        {`Item nro ${selectedItem}`}
-      </Text>
-
-      <CustomButton
-        title="Siguiente pantalla"
-        onPress={() =>
-          navigation.navigate('ScreenItemDetail', {
-            tableId: selectedTable,
-            itemId: selectedItem,
-          })
-        }
-      />
-    </View>
+      >
+        <Text
+          style={{
+            color: COLORS.white,
+            fontFamily: 'FiraSans_700Bold',
+            fontSize: 17,
+            paddingBottom: 5,
+          }}
+        >
+          {selectedTable ? `Mesa ${selectedTable}` : 'Seleccione una mesa:'}
+        </Text>
+      </View>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: '#fff',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <FlatList
+          style={{
+            width: '90%',
+            marginTop: 20,
+          }}
+          data={items}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <ItemButton
+              title={item.title}
+              onPress={() => handleSelectItem(item)}
+            />
+          )}
+        />
+        <CustomButton
+          title="Siguiente pantalla"
+          onPress={() =>
+            navigation.navigate('ScreenItemDetail', {
+              tableId: selectedTable,
+              itemId: selectedItem,
+            })
+          }
+        />
+      </View>
+    </>
   );
 }
 

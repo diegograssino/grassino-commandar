@@ -19,38 +19,57 @@ function ScreenTables({ navigation }) {
   }
 
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: COLORS.white,
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingTop: 15,
-      }}
-    >
-      <FlatList
-        numColumns={3}
-        data={tables}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <TableButton
-            title={item.title}
-            onPress={() => handleSelectTable(item)}
-          />
-        )}
-      />
-      <Text style={{ fontFamily: 'FiraSans_400Regular' }}>
-        {`Mesa nro ${selectedTable}`}
-      </Text>
-      <CustomButton
-        title="Siguiente pantalla"
-        onPress={() =>
-          navigation.navigate('ScreenItemList', {
-            tableId: selectedTable,
-          })
-        }
-      />
-    </View>
+    <>
+      <View
+        style={{
+          backgroundColor: COLORS.success,
+          paddingTop: 10,
+          paddingBottom: 5,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Text
+          style={{
+            color: COLORS.white,
+            fontFamily: 'FiraSans_700Bold',
+            fontSize: 17,
+            paddingBottom: 5,
+          }}
+        >
+          {selectedTable ? `Mesa ${selectedTable}` : 'Seleccione una mesa:'}
+        </Text>
+      </View>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.white,
+          alignItems: 'center',
+          justifyContent: 'center',
+          paddingTop: 15,
+        }}
+      >
+        <FlatList
+          numColumns={3}
+          data={tables}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <TableButton
+              title={item.title}
+              onPress={() => handleSelectTable(item)}
+            />
+          )}
+        />
+        <CustomButton
+          title="Siguiente pantalla"
+          onPress={() =>
+            navigation.navigate('ScreenItemList', {
+              tableId: selectedTable,
+            })
+          }
+        />
+      </View>
+    </>
   );
 }
 

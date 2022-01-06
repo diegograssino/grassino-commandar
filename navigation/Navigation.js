@@ -118,7 +118,7 @@ function Navigation() {
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
-          tabBarActiveTintColor: COLORS.success,
+          tabBarActiveTintColor: COLORS.white,
           tabBarStyle: {
             backgroundColor: COLORS.secondary,
             paddingTop: 10,
