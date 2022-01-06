@@ -16,7 +16,7 @@ import PlusButton from '../components/PlusButton';
 function LogoTitle() {
   return (
     <Image
-      style={{ width: 100, height: 27 }}
+      style={{ width: 77, height: 21 }}
       // eslint-disable-next-line global-require
       source={require('../assets/logodintico.png')}
     />
@@ -118,7 +118,7 @@ function Navigation() {
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
-          tabBarActiveTintColor: COLORS.white,
+          tabBarActiveTintColor: COLORS.success,
           tabBarStyle: {
             backgroundColor: COLORS.secondary,
             paddingTop: 10,
