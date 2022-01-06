@@ -2,14 +2,14 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { FontAwesome5, FontAwesome } from '@expo/vector-icons';
+import { SimpleLineIcons } from '@expo/vector-icons';
 import { Image } from 'react-native';
 import ScreenTables from '../screens/ScreenTables';
 import ScreenItemList from '../screens/ScreenItemList';
 import ScreenItemDetail from '../screens/ScreenItemDetail';
 import ScreenOrdersList from '../screens/ScreenOrdersList';
 import ScreenOrderDetail from '../screens/ScreenOrderDetail';
-import ScreenUser from '../screens/ScreenUser';
+import ScreenHome from '../screens/ScreenHome';
 import { COLORS } from '../constants/colors';
 import PlusButton from '../components/PlusButton';
 
@@ -89,11 +89,11 @@ function OrderStackScreen() {
   );
 }
 
-const UserStack = createNativeStackNavigator();
-function UserStackScreen() {
+const HomeStack = createNativeStackNavigator();
+function HomeStackScreen() {
   return (
-    <UserStack.Navigator
-      initialRouteName="ScreenOrdersList"
+    <HomeStack.Navigator
+      initialRouteName="ScreenHome"
       screenOptions={{
         headerStyle: {
           backgroundColor: COLORS.primary,
@@ -105,8 +105,8 @@ function UserStackScreen() {
         headerTitle: () => <LogoTitle />,
       }}
     >
-      <UserStack.Screen name="ScreenUser" component={ScreenUser} />
-    </UserStack.Navigator>
+      <HomeStack.Screen name="ScreenUser" component={ScreenHome} />
+    </HomeStack.Navigator>
   );
 }
 
@@ -128,12 +128,12 @@ function Navigation() {
         }}
       >
         <Tab.Screen
-          name="OrderStackScreen"
-          component={OrderStackScreen}
+          name="HomeStackScreen"
+          component={HomeStackScreen}
           options={{
-            title: 'Ordenes',
+            title: 'Inicio',
             tabBarIcon: ({ size, color }) => (
-              <FontAwesome5 name="list" size={size} color={color} />
+              <SimpleLineIcons name="home" size={size} color={color} />
             ),
           }}
         />
@@ -143,17 +143,17 @@ function Navigation() {
           options={{
             title: '',
             tabBarIcon: ({ focused, size }) => (
-              <PlusButton size={size} focused={focused} />
+              <PlusButton size={size * 1.2} focused={focused} />
             ),
           }}
         />
         <Tab.Screen
-          name="UserStackScreen"
-          component={UserStackScreen}
+          name="OrderStackScreen"
+          component={OrderStackScreen}
           options={{
-            title: 'Configuración',
+            title: 'Orden',
             tabBarIcon: ({ size, color }) => (
-              <FontAwesome name="gear" size={size} color={color} />
+              <SimpleLineIcons name="basket" size={size} color={color} />
             ),
           }}
         />

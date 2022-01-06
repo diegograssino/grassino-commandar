@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const ScreenUser = () => {
+function ScreenHome() {
   return (
     <View
       style={{
@@ -11,9 +11,9 @@ const ScreenUser = () => {
         justifyContent: 'center',
       }}
     >
-      <Text>ScreenUser.js</Text>
+      <Text>ScreenHome.js</Text>
     </View>
   );
-};
+}
 
-export default ScreenUser;
+export default ScreenHome;
