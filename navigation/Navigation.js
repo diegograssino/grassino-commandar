@@ -143,7 +143,7 @@ function Navigation() {
           options={{
             title: '',
             tabBarIcon: ({ focused, size }) => (
-              <PlusButton size={size * 1.2} focused={focused} />
+              <PlusButton size={size * 1.1} focused={focused} />
             ),
           }}
         />

@@ -21,7 +21,6 @@ function ScreenItemList({ route, navigation }) {
   return (
     <>
       <GreenBar table={selectedTable} />
-
       <View
         style={{
           flex: 1,

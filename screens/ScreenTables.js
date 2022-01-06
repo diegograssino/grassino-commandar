@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import CustomButton from '../components/CustomButton';
 import { selectTable } from '../store/actions/tables.action';
 import { COLORS } from '../constants/colors';
 import TableButton from '../components/TableButton';

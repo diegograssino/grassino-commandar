@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/prefer-default-export
-export const CART = [
+export const ORDER = [
   {
     id: '1',
     category: '1',
