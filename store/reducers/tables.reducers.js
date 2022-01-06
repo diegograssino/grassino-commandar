@@ -1,12 +1,3 @@
-// export default (state = initialState, { type, payload }) => {
-//   switch (type) {
-//     case typeName:
-//       return { ...state, ...payload };
-//     default:
-//       return state;
-//   }
-// };
-// import { SELECT_TABLE } from './store/actions/tables.actions';
 import { SELECT_TABLE } from '../actions/tables.action';
 
 const initialState = {

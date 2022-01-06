@@ -4,12 +4,11 @@ import { COLORS } from '../constants/colors';
 
 const styles = StyleSheet.create({
   customButton: {
-    borderColor: COLORS.black,
+    backgroundColor: COLORS.oldWhite,
     borderRadius: 10,
-    borderWidth: 3,
     margin: 10,
     paddingHorizontal: 15,
-    paddingVertical: 15,
+    paddingVertical: 25,
   },
   customButtonText: {
     color: COLORS.black,

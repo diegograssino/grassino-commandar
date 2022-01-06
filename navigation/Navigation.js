@@ -122,7 +122,7 @@ function Navigation() {
           tabBarStyle: {
             backgroundColor: COLORS.secondary,
             paddingTop: 10,
-            marginTop: 20,
+            marginTop: 0,
             paddingHorizontal: 30,
           },
         }}

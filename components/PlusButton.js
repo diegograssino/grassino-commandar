@@ -8,10 +8,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: COLORS.primary,
     borderRadius: 30,
-    height: 60,
+    height: 40,
     justifyContent: 'center',
-    marginBottom: 10,
-    width: 60,
+    marginTop: 10,
+    width: 40,
   },
 });
 

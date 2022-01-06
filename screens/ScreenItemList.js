@@ -1,45 +1,27 @@
 import React from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import CustomButton from '../components/CustomButton';
 import ItemButton from '../components/ItemButton';
 import { selectItem } from '../store/actions/items.action';
-import { COLORS } from '../constants/colors';
+import GreenBar from '../components/GreenBar';
 
 function ScreenItemList({ route, navigation }) {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.items.items);
-  const selectedItem = useSelector((state) => state.items.selected);
+  // const selectedItem = useSelector((state) => state.items.selected);
   const selectedTable = useSelector((state) => state.tables.selected);
   const handleSelectItem = (item) => {
     dispatch(selectItem(item.id));
     navigation.navigate('ScreenItemDetail', {
       tableId: route.params.tableId,
+      tableName: route.params.tableName,
       itemId: item.id,
     });
   };
   return (
     <>
-      <View
-        style={{
-          backgroundColor: COLORS.success,
-          paddingTop: 10,
-          paddingBottom: 5,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <Text
-          style={{
-            color: COLORS.white,
-            fontFamily: 'FiraSans_700Bold',
-            fontSize: 17,
-            paddingBottom: 5,
-          }}
-        >
-          {selectedTable ? `Mesa ${selectedTable}` : 'Seleccione una mesa:'}
-        </Text>
-      </View>
+      <GreenBar table={selectedTable} />
+
       <View
         style={{
           flex: 1,
@@ -51,7 +33,7 @@ function ScreenItemList({ route, navigation }) {
         <FlatList
           style={{
             width: '90%',
-            marginTop: 20,
+            paddingTop: 10,
           }}
           data={items}
           keyExtractor={(item) => item.id}
@@ -62,7 +44,7 @@ function ScreenItemList({ route, navigation }) {
             />
           )}
         />
-        <CustomButton
+        {/* <CustomButton
           title="Siguiente pantalla"
           onPress={() =>
             navigation.navigate('ScreenItemDetail', {
@@ -70,7 +52,7 @@ function ScreenItemList({ route, navigation }) {
               itemId: selectedItem,
             })
           }
-        />
+        /> */}
       </View>
     </>
   );

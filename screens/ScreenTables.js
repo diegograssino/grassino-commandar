@@ -9,12 +9,13 @@ import TableButton from '../components/TableButton';
 function ScreenTables({ navigation }) {
   const dispatch = useDispatch();
   const tables = useSelector((state) => state.tables.tables);
-  const selectedTable = useSelector((state) => state.tables.selected);
+  // const selectedTable = useSelector((state) => state.tables.selected);
 
   function handleSelectTable(item) {
     dispatch(selectTable(item.id));
     navigation.navigate('ScreenItemList', {
       tableId: item.id,
+      tableName: item.title,
     });
   }
 
@@ -37,7 +38,7 @@ function ScreenTables({ navigation }) {
             paddingBottom: 5,
           }}
         >
-          {selectedTable ? `Mesa ${selectedTable}` : 'Seleccione una mesa:'}
+          Seleccione una mesa:
         </Text>
       </View>
       <View
@@ -60,14 +61,14 @@ function ScreenTables({ navigation }) {
             />
           )}
         />
-        <CustomButton
+        {/* <CustomButton
           title="Siguiente pantalla"
           onPress={() =>
             navigation.navigate('ScreenItemList', {
               tableId: selectedTable,
             })
           }
-        />
+        /> */}
       </View>
     </>
   );
