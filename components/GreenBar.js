@@ -21,7 +21,7 @@ function GreenBar({ table }) {
           paddingBottom: 5,
         }}
       >
-        {table ? `Mesa ${table}` : 'Seleccione una mesa:'}
+        {table ? `Mesa ${table}` : 'Orden vacía'}
       </Text>
     </View>
   );

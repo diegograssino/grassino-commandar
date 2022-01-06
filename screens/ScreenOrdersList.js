@@ -1,13 +1,14 @@
 import React from 'react';
-import { Text, View } from 'react-native';
-import { FlatList } from 'react-native-web';
+import { View, FlatList } from 'react-native';
 import { useSelector } from 'react-redux';
+import { Entypo } from '@expo/vector-icons';
 import CustomButton from '../components/CustomButton';
 import GreenBar from '../components/GreenBar';
-// import ItemButton from '../components/ItemButton';
+import ItemButton from '../components/ItemButton';
+import { COLORS } from '../constants/colors';
 
 function ScreenOrdersList() {
-  const items = useSelector((state) => state.order.items);
+  const order = useSelector((state) => state.order.order);
 
   const selectedTable = useSelector((state) => state.tables.selected);
   return (
@@ -17,35 +18,47 @@ function ScreenOrdersList() {
       <View
         style={{
           flex: 1,
-          backgroundColor: '#fff',
+          backgroundColor: COLORS.white,
           alignItems: 'center',
           justifyContent: 'center',
         }}
       >
-        {/* <FlatList
+        <FlatList
           style={{
             width: '90%',
             paddingTop: 10,
           }}
-          data={items}
+          data={order}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <Text>{item.name}</Text>}
-        /> */}
+          renderItem={({ item }) => <ItemButton title={item.name} />}
+        />
       </View>
-      <View
-        style={{
-          backgroundColor: '#fff',
-          display: 'flex',
-          flexDirection: 'row',
-          width: '100%',
-          paddingBottom: 15,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <CustomButton title="Enviar" />
-        <CustomButton title="Borrar" />
-      </View>
+
+      {order ? (
+        <View
+          style={{
+            backgroundColor: COLORS.info,
+            display: 'flex',
+            flexDirection: 'row',
+            paddingBottom: 0,
+            alignItems: 'center',
+            justifyContent: 'space-around',
+          }}
+        >
+          <CustomButton
+            backgroundColor={COLORS.success}
+            title="Enviar"
+            icon={<Entypo name="circle-with-plus" size={15} color="white" />}
+            width={120}
+          />
+          <CustomButton
+            backgroundColor={COLORS.danger}
+            title="Borrar"
+            icon={<Entypo name="circle-with-cross" size={15} color="white" />}
+            width={120}
+          />
+        </View>
+      ) : null}
     </>
   );
 }

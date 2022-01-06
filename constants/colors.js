@@ -4,7 +4,7 @@ export const COLORS = {
   danger: '#f13468',
   alert: '#efc958',
   success: '#2EC77A',
-  info: '#4a90e2',
+  info: '#878E99',
   white: '#fff',
   oldWhite: '#e0e0e0',
   black: '#18130E',

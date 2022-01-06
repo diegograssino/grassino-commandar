@@ -18,4 +18,32 @@ export const ORDER = [
     price: 3000,
     quantity: 4,
   },
+  {
+    id: '3',
+    category: '2',
+    name: 'Pan de Arroz',
+    description: 'Pan de arroz con leche',
+    weight: '500gr',
+    price: 2000,
+    quantity: 2,
+  },
+  {
+    id: '4',
+    category: '2',
+    name: 'Pan de Arroz',
+    description: 'Pan de arroz con leche',
+    weight: '500gr',
+    price: 2000,
+    quantity: 2,
+  },
+  {
+    id: '5',
+    category: '2',
+    name: 'Pan de Arroz',
+    description: 'Pan de arroz con leche',
+
+    weight: '500gr',
+    price: 2000,
+    quantity: 2,
+  },
 ];
